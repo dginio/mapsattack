@@ -53,6 +53,15 @@ GRANT SELECT,INSERT,DELETE ON mapsattack.* TO 'mapsattack'@'localhost' IDENTIFIE
 
 ###### configure mapsattack :
 edit the file /opt/mapsattack/mapsattack.conf
+
+set the service you want enable in the global part, for example :
+> log_services = sshd,vsftpd
+
+set the location of the server, you can get it on http://www.iplocationfinder.com/
+> latitude = xx.xxxxxx
+
+> longitude = xx.xxxxxx
+
 set the passwords you used for the database accounts in the mysql part
 
 > [mysql]
