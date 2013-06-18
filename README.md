@@ -1,4 +1,4 @@
-### mapsattack is a tool to localize malicious connexions on a server
+### mapsattack is a tool to localize malicious connections on a server
 
 [Check out the demo here](https://dginio.fr/mapsattack)
 ![alt text](https://dginio.fr/mapsattack/preview.jpg "Demo")
@@ -77,3 +77,4 @@ add this line to scan log files every 3 minutes :
 > */3 * * * * python /opt/mapsattack/log_scan.py
 
 
+##### Check who is attacking you on http://your_server/mapsattack
