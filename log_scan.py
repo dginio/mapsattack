@@ -126,8 +126,11 @@ def scan(service) :
 
 	base_filename = config.get(service, "log_file")
 
-	avaible_files = []
-	avaible_files.append(base_filename)
+        avaible_files = []
+        if os.path.isfile(base_filename) :
+                avaible_files.append(base_filename)
+        else :
+                print "file not found : "+base_filename
 	
 	if config.getboolean(service, "log_rotation") : 
 		i = 1
