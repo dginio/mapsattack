@@ -16,25 +16,36 @@
 
 ###### download mapsattack :
 > cd /opt
+
 > git clone https://github.com/dginio/mapsattack.git
 
 ###### configure rights :
 > cd mapsattack
+
 > chown root:www-data * -Rf
+
 > chmod 750 * -Rf
+
 > chmod 770 web/
 	
 ###### install simplekml for python : 
 > wget https://simplekml.googlecode.com/files/simplekml-1.2.2.zip
+
 > unzip simplekml-1.2.2.zip
+
 > cd simplekml-1.2.2
+
 > python setup.py install
+
 > cd ..
+
 > rm simplekml* -Rf
 
 ###### setup the database :
 > mysql -u root -p
+
 > create database mapsattack;
+
 > use mapsattack;
 		
 > CREATE TABLE logs (line char(255) NOT NULL, service char(255) NOT NULL, date datetime NOT NULL, ip char(15) NOT NULL, action char(255) NOT NULL, info char(255) NOT NULL, PRIMARY KEY (line) ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
