@@ -42,10 +42,12 @@
 > CREATE TABLE ips (ip char(15) NOT NULL, host char(255) NOT NULL, isp char(255) NOT NULL, latitude float NOT NULL, longitude float NOT NULL, location char(255) NOT NULL, PRIMARY KEY (ip) ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 		
 > CREATE USER 'mapsattack_guest'@'localhost' IDENTIFIED BY '`<guest_pwd>`';
-GRANT SELECT ON mapsattack.* TO 'mapsattack_guest'@'localhost' IDENTIFIED BY ‘`<guest_pwd>`’;
+
+> GRANT SELECT ON mapsattack.* TO 'mapsattack_guest'@'localhost' IDENTIFIED BY ‘`<guest_pwd>`’;
 		
 > CREATE USER 'mapsattack'@'localhost' IDENTIFIED BY '`<superuser_pwd>`';
-GRANT SELECT,INSERT,DELETE ON mapsattack.* TO 'mapsattack'@'localhost' IDENTIFIED BY '`<superuser_pwd>`';
+
+> GRANT SELECT,INSERT,DELETE ON mapsattack.* TO 'mapsattack'@'localhost' IDENTIFIED BY '`<superuser_pwd>`';
 
 > FLUSH PRIVILEGES;
 
