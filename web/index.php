@@ -26,18 +26,22 @@
             $pwd = $pwd[1];
         }
 
-	mysql_connect($server,$user,$pwd);
-	mysql_select_db($database);
-	$rdate1 = mysql_query("SELECT date FROM logs ORDER BY date ASC  LIMIT 1;" ) or die ("Error");
-	while ( $res = mysql_fetch_array( $rdate1 ) ) $date1 = $res['date'];
-	$rdate2 = mysql_query("SELECT date FROM logs ORDER BY date DESC LIMIT 1;" ) or die ("Error");
-    while ( $res = mysql_fetch_array( $rdate2 ) ) $date2 = $res['date'];
-	$dsd = intval(substr($date1,8,2));
-	$dsm = intval(substr($date1,5,2));
-	$dsy = intval(substr($date1,0,4));
-	$ded = intval(substr($date2,8,2));
-	$dem = intval(substr($date2,5,2));
-	$dey = intval(substr($date2,0,4));
+        mysql_connect($server,$user,$pwd);
+        mysql_select_db($database);
+        $rdate = mysql_query("SELECT date FROM logs ORDER BY date DESC LIMIT 1;" ) or die ("Error");
+        while ( $res = mysql_fetch_array( $rdate ) ) $date = $res['date'];
+        $ded = intval(substr($date,8,2));
+        $dem = intval(substr($date,5,2));
+        $dey = intval(substr($date,0,4));
+        $dsd = $ded;
+        if ( $dsm == 1) {
+                $dsy = $dey - 1;
+                $dem = 12;
+        }
+        else {
+                $dsm = $dem-1;
+        }
+        $dsy = $dey;
 ?>
 <!DOCTYPE html>
 <html>
